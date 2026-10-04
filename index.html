@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Télécharger FlashPay pour Android</title>
+<meta name="description" content="Téléchargez l'application FlashPay : envoyez de l'argent entre Wave, Orange, MTN et Moov.">
+<meta name="theme-color" content="#6C2BD9">
+<meta property="og:title" content="FlashPay — Télécharger l'application">
+<meta property="og:description" content="Envoyez de l'argent entre Wave, Orange, MTN et Moov.">
+<meta property="og:image" content="icon-512.png">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--brand:#6C2BD9;--brand2:#9B5CF6;--bg:#F7F5FC;--card:#fff;--ink:#1B1530;--mute:#5F587A;--line:#E3DDF0;--ok:#14703F}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+.hero{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:48px 20px 96px;text-align:center}
+.hero img{width:96px;height:96px;border-radius:24px;box-shadow:0 10px 30px rgba(27,21,48,.35)}
+.hero h1{font-size:clamp(28px,6vw,40px);margin:18px 0 8px}
+.hero p{margin:0 auto;max-width:480px;font-size:18px;opacity:.95}
+main{max-width:920px;margin:-64px auto 0;padding:0 16px 48px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.grid{grid-template-columns:1.2fr 1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 8px 24px rgba(27,21,48,.08)}
+.card h2{font-size:20px;margin:0 0 6px}
+.mu{color:var(--mute);font-size:14px;margin:0}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;width:100%;border-radius:18px;border:0;background:var(--brand);color:#fff;font:inherit;font-weight:700;font-size:17px;text-decoration:none;cursor:pointer;margin-top:18px}
+.btn:hover{background:#5A20BD}
+.btn.ghost{background:transparent;color:var(--brand);border:1.5px solid var(--brand);min-height:48px;font-size:15px;margin-top:12px}
+.btn:focus-visible,a:focus-visible{outline:3px solid #1B1530;outline-offset:3px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:13px;font-weight:600;background:#EFE8FC;color:#4B1BA6;border-radius:999px;padding:4px 12px}
+.qr{display:flex;flex-direction:column;align-items:center;text-align:center}
+#qr{width:224px;height:224px;padding:8px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:16px 0 4px;display:flex;align-items:center;justify-content:center}
+#qr canvas,#qr img{max-width:100%;height:auto}
+#qrfallback{display:none;font-size:13px;color:var(--mute);word-break:break-all}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:14px 0 0;display:grid;gap:12px}
+ol.steps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start}
+ol.steps li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.full{margin-top:16px}
+details{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+summary{cursor:pointer;font-weight:600;min-height:32px}
+.sha{font-family:ui-monospace,Menlo,monospace;font-size:12px;word-break:break-all;background:var(--bg);border-radius:12px;padding:10px;margin-top:8px}
+.note{display:none;margin-top:14px;padding:12px 14px;border-radius:14px;background:#FDEFD9;color:#6B4000;font-size:14px}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:0 16px 40px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}
+#toast.on{opacity:1}
+</style>
+</head>
+<body>
+<header class="hero">
+  <img src="icon-192.png" width="96" height="96" alt="Icône FlashPay">
+  <h1>FlashPay</h1>
+  <p>Envoyez de l’argent entre Wave, Orange, MTN et Moov, simplement et rapidement.</p>
+</header>
+
+<main>
+  <div class="grid">
+    <section class="card" aria-labelledby="t-dl">
+      <h2 id="t-dl">Télécharger pour Android</h2>
+      <p class="mu">Application officielle FlashPay, installation directe (fichier APK).</p>
+      <div class="meta" id="meta"></div>
+      <a class="btn" id="dl" href="#" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+        Télécharger FlashPay
+      </a>
+      <p class="note" id="note-start" style="background:#E3F4EA;color:#14703F" role="status">Téléchargement lancé. Quand il est terminé, ouvrez le fichier depuis la notification de votre téléphone (ou le dossier « Téléchargements »).</p>
+      <p class="note" id="note-err" style="background:#FBE3E1;color:#A3261D" role="alert"></p>
+      <p class="note" id="note-ios">Vous êtes sur iPhone : la version iOS n’est pas encore disponible. Ouvrez cette page depuis un téléphone Android pour installer FlashPay.</p>
+      <p class="note" id="note-desk" style="background:#EFE8FC;color:#4B1BA6">Vous êtes sur ordinateur : scannez le QR code avec votre téléphone Android pour ouvrir cette page dessus.</p>
+
+      <h2 style="margin-top:26px">Comment l’installer</h2>
+      <ol class="steps">
+        <li><span>Appuyez sur <b>Télécharger FlashPay</b> et attendez la fin du téléchargement.</span></li>
+        <li><span>Ouvrez le fichier téléchargé. Si Android le demande, autorisez l’installation depuis votre navigateur (« Installer des applications inconnues »).</span></li>
+        <li><span>Appuyez sur <b>Installer</b>, puis ouvrez FlashPay.</span></li>
+      </ol>
+
+      <details>
+        <summary>Pourquoi Android affiche-t-il un avertissement ?</summary>
+        <p class="mu" style="margin-top:8px">FlashPay n’est pas encore sur Google Play, donc Android signale une installation « hors boutique ». C’est normal. Téléchargez toujours l’application depuis ce site officiel uniquement, et ne la récupérez jamais via un lien reçu d’un inconnu.</p>
+      </details>
+      <details id="newbox" hidden>
+        <summary id="newtitle">Nouveautés</summary>
+        <p class="mu" id="newtxt" style="margin-top:8px;white-space:pre-wrap"></p>
+      </details>
+      <details id="shabox" hidden>
+        <summary>Vérifier l’intégrité du fichier (avancé)</summary>
+        <p class="mu" style="margin-top:8px">Empreinte SHA-256 du fichier officiel :</p>
+        <div class="sha" id="sha"></div>
+      </details>
+    </section>
+
+    <aside class="card qr" aria-labelledby="t-qr">
+      <h2 id="t-qr">Scannez pour télécharger</h2>
+      <p class="mu">Ouvrez l’appareil photo de votre téléphone et pointez le code.</p>
+      <div id="qr" role="img" aria-label="QR code vers cette page de téléchargement"></div>
+      <p id="qrfallback">Le QR code n’a pas pu s’afficher. Utilisez le lien ci-dessous.</p>
+      <button class="btn ghost" id="copy" type="button">Copier le lien de cette page</button>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p id="support"></p>
+  <p>© <span id="yr"></span> FlashPay</p>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+<script>
+/* ===== À MODIFIER (2 lignes obligatoires) ===== */
+const CONFIG = {
+  owner: 'solplay-app',   // ex. 'monentreprise'  (le dépôt doit être PUBLIC)
+  repo:  'FLASHPAY-ANDROID',       // ex. 'flashpay-app'
+  tag:   '',                      // laisser vide = dernière release. Si votre workflow republie toujours la même release, mettez son tag (ex. 'latest')
+  asset: 'flashpay.apk',                    // nom exact du fichier .apk dans la release (ex. 'FlashPay.apk'). Recommandé : sert de lien de secours
+  android: '',                    // ex. 'Android 7.0 ou plus' (vide = masqué)
+  support: ''                     // ex. 'Besoin d\'aide ? contact@votredomaine.com' (vide = masqué)
+};
+/* =============================================== */
+
+const $ = (id) => document.getElementById(id);
+const enc = encodeURIComponent;
+const pageUrl = location.origin + location.pathname;
+const configured = !/VOTRE-/.test(CONFIG.owner + CONFIG.repo);
+const relBase = `https://github.com/${CONFIG.owner}/${CONFIG.repo}/releases`;
+const apiUrl = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/releases/` + (CONFIG.tag ? `tags/${enc(CONFIG.tag)}` : 'latest');
+// Lien direct de secours (utilisé tant que GitHub n'a pas répondu, ou s'il est indisponible)
+const fallback = CONFIG.asset
+  ? (CONFIG.tag ? `${relBase}/download/${enc(CONFIG.tag)}/${enc(CONFIG.asset)}` : `${relBase}/latest/download/${enc(CONFIG.asset)}`)
+  : (CONFIG.tag ? `${relBase}/tag/${enc(CONFIG.tag)}` : `${relBase}/latest`);
+
+const dl = $('dl');
+dl.href = fallback;
+if (CONFIG.support) $('support').textContent = CONFIG.support;
+$('yr').textContent = new Date().getFullYear();
+
+function chip(t) { if (!t) return; const s = document.createElement('span'); s.className = 'chip'; s.textContent = t; $('meta').appendChild(s); }
+function showErr(m) { const n = $('note-err'); n.textContent = m; n.style.display = 'block'; }
+
+// Appareil
+const ua = navigator.userAgent;
+const isAndroid = /Android/i.test(ua);
+const isIOS = /iPhone|iPad|iPod/i.test(ua);
+if (isIOS) { $('note-ios').style.display = 'block'; dl.style.display = 'none'; }
+else if (!isAndroid) { $('note-desk').style.display = 'block'; }
+
+// Clic : le lien pointe directement vers le fichier, le téléchargement démarre sans quitter la page
+dl.addEventListener('click', () => { $('note-start').style.display = 'block'; });
+
+// Dernière version publiée sur GitHub (mise à jour automatique à chaque visite)
+async function loadRelease() {
+  if (!configured) { dl.style.display = 'none'; showErr('Site non configuré : renseignez « owner » et « repo » dans index.html.'); return; }
+  try {
+    const r = await fetch(apiUrl, { headers: { Accept: 'application/vnd.github+json' } });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const rel = await r.json();
+    const apks = (rel.assets || []).filter((a) => /\.apk$/i.test(a.name)).sort((a, b) => /debug/i.test(a.name) - /debug/i.test(b.name));
+    const a = apks.find((x) => x.name === CONFIG.asset) || apks[0];
+    if (!a) throw new Error('aucun APK dans la release');
+    dl.href = a.browser_download_url;
+    chip('Version ' + (rel.tag_name || rel.name || '').replace(/^v/i, ''));
+    if (rel.published_at) chip('Mise à jour le ' + new Date(rel.published_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }));
+    chip((a.size / 1048576).toFixed(1).replace('.', ',') + ' Mo');
+    chip(CONFIG.android); chip('Gratuit');
+    if (rel.body && rel.body.trim()) { $('newbox').hidden = false; $('newtitle').textContent = 'Nouveautés de la version ' + (rel.tag_name || ''); $('newtxt').textContent = rel.body.trim().slice(0, 800); }
+    if (a.digest && /^sha256:/i.test(a.digest)) { $('shabox').hidden = false; $('sha').textContent = a.digest.slice(7); }
+  } catch (e) {
+    chip(CONFIG.android); chip('Gratuit');
+    if (!CONFIG.asset) { showErr('Impossible de lire la dernière version pour le moment. Le bouton ouvre la page de téléchargement GitHub.'); }
+  }
+}
+loadRelease();
+
+// Toast + copier le lien
+let tt; function toast(m) { const t = $('toast'); t.textContent = m; t.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 2200); }
+$('copy').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(pageUrl); toast('Lien copié'); }
+  catch { window.prompt('Copiez ce lien :', pageUrl); }
+});
+
+// QR code (pointe vers cette page ; le téléphone arrive sur le bouton de téléchargement)
+function qrFail() { $('qr').style.display = 'none'; $('qrfallback').style.display = 'block'; }
+function drawQr() {
+  try { new QRCode($('qr'), { text: pageUrl, width: 208, height: 208, colorDark: '#1B1530', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M }); }
+  catch (e) { qrFail(); }
+}
+window.addEventListener('load', () => (typeof QRCode === 'undefined' ? qrFail() : drawQr()));
+</script>
+</body>
+</html>
